@@ -1,7 +1,7 @@
 ## `Kurulum`
 
 ```
-npm install veya yarn
+yarn
 ```
 
 ## `Kullanilan Kutuphaneler`
