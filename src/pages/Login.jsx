@@ -10,8 +10,10 @@ import TextField from "@mui/material/TextField";
 import { Button } from "@mui/material";
 import { Formik, Form } from "formik";
 import { object, string, number, date, InferType } from "yup";
+import useAuthCalls from "../api/useAuthCalls";
 
 const Login = () => {
+  const { login } = useAuthCalls()
   const loginSchema = object({
     email: string()
       .email("Lütfen geçerli bir email giriniz")
@@ -69,16 +71,14 @@ const Login = () => {
             initialValues={{ email: "", password: "" }}
             validationSchema={loginSchema}
             onSubmit={(values, actions) => {
+              login(values);
               actions.resetForm();
               actions.setSubmitting(false);
             }}
           >
             {({ handleChange, values, touched, errors, handleBlur }) => (
               <Form>
-                <Box
-                  component="form"
-                  sx={{ display: "flex", flexDirection: "column", gap: 2 }}
-                >
+                <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
                   <TextField
                     label="Email"
                     name="email"
