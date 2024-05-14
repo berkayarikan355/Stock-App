@@ -1,3 +1,5 @@
+Vercel Link : stock-app-liard.vercel.app
+
 ## `Kurulum`
 
 ```
@@ -14,10 +16,7 @@ yarn
 - `@emotion/react`
 - `@emotion/styled`
 
-## `Kullanilacak Araclar`
+## `Kullanilan Araclar`
 
 - `Redux Dev Tools` 
 
-## Uygulamanın Canlı Ornegi:
-
-https://stock-new.netlify.app/
