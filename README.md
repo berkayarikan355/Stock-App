@@ -1,4 +1,4 @@
-Vercel Link : stock-app-liard.vercel.app
+
 
 ## `Kurulum`
 
