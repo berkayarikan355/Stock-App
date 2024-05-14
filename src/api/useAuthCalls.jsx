@@ -1,17 +1,19 @@
 import axios from "axios";
 import { toastErrorNotify, toastSuccessNotify } from "../helper/ToastNotify";
 import { useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import {
   fetchFail,
   fetchStart,
   loginSuccess,
+  logoutSuccess,
   registerSuccess,
 } from "../features/authSlice";
 
 const useAuthCalls = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const { token } = useSelector( state => state.auth)
   const login = async (userInfo) => {
     dispatch(fetchStart());
     try {
@@ -43,7 +45,20 @@ const useAuthCalls = () => {
       dispatch(fetchFail());
     }
   };
-  const logout = async () => {};
+  const logout = async () => {
+    dispatch(fetchStart());
+
+    try {
+      await axios.get(`${process.env.REACT_APP_BASE_URL}/auth/logout`, {
+        headers: { Authorization: `Token ${token}` },
+      });
+      dispatch(logoutSuccess());
+      navigate("/");
+    } catch (error) {
+      dispatch(fetchFail());
+      toastErrorNotify("Cikis islemi basarisiz oldu.");
+    }
+  };
 
   return { login, register, logout };
 };

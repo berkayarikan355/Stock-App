@@ -10,6 +10,9 @@ import { useSelector } from "react-redux"
 
 function Dashboard() {
   const user = useSelector(state=> state.auth)
+  const handleLogout = ()=> {
+
+  }
 
   return (
     <Box sx={{ display: "flex" }}>
@@ -19,7 +22,7 @@ function Dashboard() {
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             STOCK APP
           </Typography>
-          {user && <Button color="inherit">Logout</Button>}
+          {user && <Button color="inherit" onClick={()=> handleLogout()}>Logout</Button>}
         </Toolbar>
       </AppBar>
     </Box>
