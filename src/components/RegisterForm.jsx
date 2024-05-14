@@ -1,8 +1,8 @@
-import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
-import TextField from "@mui/material/TextField";
-import { Form } from "formik";
-import { object, string } from "yup";
+import Box from "@mui/material/Box"
+import Button from "@mui/material/Button"
+import TextField from "@mui/material/TextField"
+import { Form } from "formik"
+import { object, string } from "yup"
 
 export const registerSchema = object({
   username: string()
@@ -26,7 +26,7 @@ export const registerSchema = object({
     .matches(/[a-z]/, "Şifre bir küçük harf içermelidir")
     .matches(/[A-Z]/, "Şifre bir büyük harf içermelidir")
     .matches(/[!/[@$!%*?&]+/, "Şifre bir özel karakter içermelidir"),
-});
+})
 
 const RegisterForm = ({
   values,
@@ -103,7 +103,7 @@ const RegisterForm = ({
         </Button>
       </Box>
     </Form>
-  );
-};
+  )
+}
 
-export default RegisterForm;
+export default RegisterForm
